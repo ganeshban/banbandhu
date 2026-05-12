@@ -1,0 +1,63 @@
+.header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+  gap: 32px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo { flex-shrink: 0; }
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 300;
+  color: var(--text-1);
+  letter-spacing: 0.02em;
+}
+
+.brandName em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.nav {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-3);
+  border: 1px solid transparent;
+  transition: color var(--transition), background var(--transition), border-color var(--transition);
+}
+
+.tab:hover {
+  color: var(--text-2);
+  background: var(--surface);
+}
+
+.active {
+  color: var(--gold-light) !important;
+  background: rgba(201, 168, 76, 0.08) !important;
+  border-color: var(--gold-dim) !important;
+}

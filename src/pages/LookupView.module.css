@@ -1,0 +1,192 @@
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--text-1);
+  margin-bottom: 10px;
+}
+
+.heroSub {
+  font-size: 0.88rem;
+  color: var(--text-3);
+  margin-bottom: 28px;
+}
+
+.hero > div {
+  margin: 0 auto;
+}
+
+/* All members grid */
+.allGrid { }
+
+.gridTitle {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--text-2);
+  margin-bottom: 20px;
+}
+
+.gridTitle span {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.memberCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.memberCard:hover {
+  background: var(--bg-3);
+  border-color: var(--border-2);
+  transform: translateY(-1px);
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cardName {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--text-1);
+}
+
+.cardMeta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+}
+
+.cardParents {
+  font-size: 0.7rem;
+  color: var(--text-3);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Profile card */
+.profileCard {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.profileHeader {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.profileName {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--text-1);
+  margin-bottom: 4px;
+}
+
+.profileOcc {
+  font-size: 0.85rem;
+  color: var(--text-2);
+}
+
+.profileMeta {
+  font-size: 0.8rem;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2px 8px;
+}
+
+.profileGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 32px;
+  margin-bottom: 28px;
+}
+
+.section { }
+.fullWidth { grid-column: 1 / -1; }
+
+.dt {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.dd {
+  font-size: 0.88rem;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+
+.cap { text-transform: capitalize; }
+
+.treeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+  font-size: 0.88rem;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.treeBtn:hover {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--gold);
+}

@@ -1,0 +1,137 @@
+.nodeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nodeRow {
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  min-width: 220px;
+  max-width: 280px;
+  position: relative;
+  user-select: none;
+}
+
+.card:hover {
+  background: var(--bg-3);
+  border-color: var(--border-2);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.focused {
+  border-color: var(--gold) !important;
+  background: rgba(201, 168, 76, 0.06) !important;
+  box-shadow: 0 0 0 1px rgba(201, 168, 76, 0.3), var(--shadow-md) !important;
+}
+
+.focused .name {
+  color: var(--gold-light) !important;
+}
+
+.deceased {
+  opacity: 0.7;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--transition);
+}
+
+.meta {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  color: var(--text-3);
+  flex-shrink: 0;
+  transition: background var(--transition), color var(--transition);
+}
+
+.toggle:hover {
+  background: var(--gold-dim);
+  color: var(--gold-light);
+}
+
+/* Tree connectors */
+.children {
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  /* margin-top: 0; */
+  position: relative;
+}
+
+.branchLine {
+  width: 2px;
+  background: var(--border);
+  margin-top: 12px;
+  margin-right: 0;
+  margin-bottom: 41px;
+  align-self: stretch;
+  min-height: 20px;
+  margin-left: 18px;
+}
+
+.childList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 16px;
+  padding-left: 0;
+
+}
+
+.childBranch {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 6px;
+
+}
+
+.hLine {
+  width: 24px;
+  height: 2px;
+  background: var(--border);
+  margin-top: 19px;
+  flex-shrink: 0;
+}

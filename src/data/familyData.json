@@ -1,0 +1,1530 @@
+{
+  "members": [
+    {
+      "id": "1",
+      "name": "राठु वन सन्यासी",
+      "otherName": null,
+      "dob": "1901-01-01",
+      "dod": "1950-01-01",
+      "gender": "पुरूष",
+      "parentIds": [],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "2",
+      "name": "रतन वन सन्यासी",
+      "otherName": null,
+      "dob": "1901-01-01",
+      "dod": "1950-01-01",
+      "gender": "पुरूष",
+      "parentIds": [
+        "1"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "3",
+      "name": "शिवराज वन सन्यासी",
+      "otherName": null,
+      "dob": "1901-01-01",
+      "dod": "1950-01-01",
+      "gender": "पुरूष",
+      "parentIds": [
+        "2"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "4",
+      "name": "पृथ्वी वन सन्यासी",
+      "otherName": null,
+      "dob": "1901-01-01",
+      "dod": "1950-01-01",
+      "gender": "पुरूष",
+      "parentIds": [
+        "3"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "5",
+      "name": "माेती वन सन्यासी",
+      "otherName": null,
+      "dob": "1901-01-01",
+      "dod": "1950-01-01",
+      "gender": "पुरूष",
+      "parentIds": [
+        "4"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "6",
+      "name": "नरिश्वर वन",
+      "otherName": null,
+      "dob": "1901-01-01",
+      "dod": "1950-01-01",
+      "gender": "पुरूष",
+      "parentIds": [
+        "5"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "7",
+      "name": "खगु वन सन्यासी",
+      "otherName": null,
+      "dob": "1901-01-01",
+      "dod": "1950-01-01",
+      "gender": "पुरूष",
+      "parentIds": [
+        "6"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "8",
+      "name": "गगुं वन सन्यासी",
+      "otherName": null,
+      "dob": "1901-01-01",
+      "dod": "1950-01-01",
+      "gender": "पुरूष",
+      "parentIds": [
+        "7"
+      ],
+      "spouseIds": [
+        "9"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "9",
+      "name": "डिला देवि वन सन्यासी",
+      "otherName": null,
+      "dob": "1942-01-01",
+      "dod": "2018-01-01",
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "8"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "10",
+      "name": "कुला नन्द वन सन्यासी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "7"
+      ],
+      "spouseIds": [
+        "11"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "11",
+      "name": "गाेमा वन सन्यासी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "10"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "12",
+      "name": "गाेमा गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": "2019-01-01",
+      "gender": "महिला",
+      "parentIds": [
+        "8",
+        "9"
+      ],
+      "spouseIds": [
+        "13"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "13",
+      "name": "बासुदेव गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": "2021-01-01",
+      "gender": "पुरूष",
+      "parentIds": null,
+      "spouseIds": [
+        "12"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "14",
+      "name": "गिरीराज वन सन्यासी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "8",
+        "9"
+      ],
+      "spouseIds": [
+        "15"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "15",
+      "name": "पदम कुमारी सन्यासी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "14"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "16",
+      "name": "भिमा कुमाल",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "8",
+        "9"
+      ],
+      "spouseIds": [
+        "17"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "17",
+      "name": "दल बहादुर कुमाल",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": null,
+      "spouseIds": [
+        "16"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "18",
+      "name": "काेपिला भारती",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "8",
+        "9"
+      ],
+      "spouseIds": [
+        "19"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "19",
+      "name": "टिका भारती",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": null,
+      "spouseIds": [
+        "18"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "20",
+      "name": "घनश्याम वन सन्यासी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "8",
+        "9"
+      ],
+      "spouseIds": [
+        "21"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "21",
+      "name": "खिमा वन सन्यासी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "20"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "22",
+      "name": "जमुना वन",
+      "otherName": null,
+      "dob": "1990-09-04",
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "14",
+        "15"
+      ],
+      "spouseIds": [
+        "23"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "23",
+      "name": "भाेजराज गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": null,
+      "spouseIds": [
+        "22"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "24",
+      "name": "माधव वन",
+      "otherName": null,
+      "dob": "1993-08-21",
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "14",
+        "15"
+      ],
+      "spouseIds": [
+        "25"
+      ],
+      "photo": null,
+      "birthPlace": "गैंडाकाेट नवलपरासी"
+    },
+    {
+      "id": "25",
+      "name": "लिला पुरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "24"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "26",
+      "name": "गणेश वन",
+      "otherName": null,
+      "dob": "1996-08-28",
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "14",
+        "15"
+      ],
+      "spouseIds": [
+        "27"
+      ],
+      "photo": "https://api.dicebear.com/9.x/notionists/svg?seed=Zoie",
+      "birthPlace": "गैंडाकाेट नवलपरासी"
+    },
+    {
+      "id": "27",
+      "name": "प्रियंका भारती",
+      "otherName": null,
+      "dob": "2003-11-25",
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "26"
+      ],
+      "photo": null,
+      "birthPlace": "पिप्रा सिमरा"
+    },
+    {
+      "id": "28",
+      "name": "हाेम कला वन सन्यासी",
+      "otherName": "ऋतु वन",
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "20",
+        "21"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "गैंडाकाेट नवलपरासी"
+    },
+    {
+      "id": "29",
+      "name": "रिवु वन सन्यासी",
+      "otherName": "रिया वन",
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "20",
+        "21"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "गैंडाकाेट नवलपरासी"
+    },
+    {
+      "id": "30",
+      "name": "रिजन वन सन्यासी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "20",
+        "21"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "गैंडाकाेट नवलपरासी"
+    },
+    {
+      "id": "31",
+      "name": "कृषण गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "12",
+        "13"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "32",
+      "name": "सरस्वती गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "12",
+        "13"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "33",
+      "name": "रिना गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "12",
+        "13"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "34",
+      "name": "राधिका गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "12",
+        "13"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "35",
+      "name": "बिना कुमाल",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "16",
+        "17"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "36",
+      "name": "बिनाेद कुमाल",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "16",
+        "17"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "37",
+      "name": "बिजय कुमाल",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "16",
+        "17"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "38",
+      "name": "सराेज भारती",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "18",
+        "19"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "39",
+      "name": "सुनिल भारती",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "18",
+        "19"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "40",
+      "name": "कृषण कुमारी गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "10",
+        "11"
+      ],
+      "spouseIds": [
+        "49"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "41",
+      "name": "आेम प्रकाश वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "10",
+        "11"
+      ],
+      "spouseIds": [
+        "47",
+        "48"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "42",
+      "name": "डिल्लीराज वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "10",
+        "11"
+      ],
+      "spouseIds": [
+        "46"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "43",
+      "name": "इश्वरी वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "10",
+        "11"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "44",
+      "name": "तुमनाथ वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "10",
+        "11"
+      ],
+      "spouseIds": [
+        "45"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "45",
+      "name": "प्रकृती पुरी वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "44"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "46",
+      "name": "सारदा पुरी वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "42"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "47",
+      "name": "पवित्रा पैडेल",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "41"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "48",
+      "name": "कल्पना वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "41"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "49",
+      "name": "इश्वर गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": null,
+      "spouseIds": [
+        "40"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "50",
+      "name": "निर्मल गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "40",
+        "49"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "51",
+      "name": "नविन गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "40",
+        "49"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "52",
+      "name": "बसन्त वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "41",
+        "48"
+      ],
+      "spouseIds": [
+        "56"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "53",
+      "name": "युनिश वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "42",
+        "46"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "54",
+      "name": "युना वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "42",
+        "46"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "55",
+      "name": "बिज्जल गिरी",
+      "otherName": "आर्जन गिरी",
+      "dob": "2010-05-29",
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "22",
+        "23"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "56",
+      "name": "तारा क्षेत्री",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "52"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "57",
+      "name": "माइला बुडा बा",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "6"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "58",
+      "name": "सांइला बुडा बा",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "6"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "59",
+      "name": "कान्छा बुडा बा",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "6"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "60",
+      "name": "रूदृ बाका बा",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "57"
+      ],
+      "spouseIds": [
+        "63"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "61",
+      "name": "द्रेण वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "58"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "62",
+      "name": "लाटा हजुरबा",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "59"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "63",
+      "name": "ठगमाया वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "60"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "64",
+      "name": "रूद्रलाल वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "60",
+        "63"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "65",
+      "name": "तिला वन (अर्जुन)",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "60",
+        "63"
+      ],
+      "spouseIds": [
+        "81"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "66",
+      "name": "नारायण वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "60",
+        "63"
+      ],
+      "spouseIds": [
+        "82"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "67",
+      "name": "ध्रुब वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "60",
+        "63"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "68",
+      "name": "लक्षमण वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "64"
+      ],
+      "spouseIds": [
+        "92"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "69",
+      "name": "राम वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "64"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "70",
+      "name": "हरिलाल वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "57"
+      ],
+      "spouseIds": [
+        "74"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "71",
+      "name": "तिला वन (साइला बा)",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "57"
+      ],
+      "spouseIds": [
+        "75"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "72",
+      "name": "टेकलाल वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "57"
+      ],
+      "spouseIds": [
+        "76"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "73",
+      "name": "लेखनाथ वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "58"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "74",
+      "name": "माइली आमा अरूणखेला",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "70"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "75",
+      "name": "साइली आमा फुर्तीचेक",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "65"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "76",
+      "name": "साबित्री वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "72"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "77",
+      "name": "रामु वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "70",
+        "74"
+      ],
+      "spouseIds": [
+        "83"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "78",
+      "name": "गणेश वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "71",
+        "75"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "79",
+      "name": "अर्जुन वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "71",
+        "75"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "80",
+      "name": "काशीराम वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "62"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "81",
+      "name": "देवि वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "65"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "82",
+      "name": "बिजया वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "66"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "83",
+      "name": "सिता काफ्ले वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "77"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "84",
+      "name": "गजेन्द्र वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "61"
+      ],
+      "spouseIds": [
+        "86"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "85",
+      "name": "नरेन्द्र वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "61"
+      ],
+      "spouseIds": [
+        "87"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "86",
+      "name": "निरू आर्चाय वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "84"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "87",
+      "name": "आकंक्षा महताे वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "85"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "88",
+      "name": "सन्ताेस वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "73"
+      ],
+      "spouseIds": [
+        "89"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "89",
+      "name": "पुजा गिरी वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "88"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "90",
+      "name": "याेगेश वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "73"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "91",
+      "name": "गाेकर्ण वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "62"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "92",
+      "name": "जानु गिरी वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": null,
+      "spouseIds": [
+        "68"
+      ],
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "93",
+      "name": "गंगा वन गिरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "64"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "94",
+      "name": "सन्दिप वन",
+      "otherName": "राम वन",
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "65",
+        "81"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "95",
+      "name": "मन्दिप वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "65",
+        "81"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "96",
+      "name": "लक्ष्मण दाइकाे छेरी",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "68",
+        "92"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "97",
+      "name": "युरिका वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "77",
+        "83"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "98",
+      "name": "युनिश वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "77",
+        "83"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "99",
+      "name": "युनिक वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "77",
+        "83"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "100",
+      "name": "स्विकृती वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "66",
+        "82"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "101",
+      "name": "संस्कृती वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "महिला",
+      "parentIds": [
+        "66",
+        "82"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    },
+    {
+      "id": "102",
+      "name": "संस्कार वन",
+      "otherName": null,
+      "dob": null,
+      "dod": null,
+      "gender": "पुरूष",
+      "parentIds": [
+        "66",
+        "82"
+      ],
+      "spouseIds": null,
+      "photo": null,
+      "birthPlace": "नेपाल"
+    }
+  ]
+}
