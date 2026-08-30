@@ -5,7 +5,7 @@ import LookupView from "./pages/LookupView";
 import "./styles/global.css";
 
 export default function App() {
-  const [tab, setTab] = useState("tree");   // "tree" | "lookup"
+  const [tab, setTab] = useState("lookup");   // "tree" | "lookup"
   const [focusId, setFocusId] = useState(null);
 
   function handleViewTree(memberId) {

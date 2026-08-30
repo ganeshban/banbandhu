@@ -44,10 +44,10 @@ export default function TreeView({ focusId: initialFocusId = null, onBack }) {
   }
 
   return (
-    <div className={styles.layout}>
+    <div className={`${styles.layout} container-fluid p-0`}>
       {/* Main tree canvas */}
-      <div className={styles.canvas}>
-        <div className={styles.toolbar}>
+      <div className={`${styles.canvas} col p-0`}>
+        <div className={`${styles.toolbar} d-flex flex-wrap align-items-center`}>
           {onBack && (
             <button className={styles.backBtn} onClick={onBack}>
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -79,7 +79,7 @@ export default function TreeView({ focusId: initialFocusId = null, onBack }) {
         <div className={styles.treeScroll}>
           <div className={styles.treeRoot}>
             {roots.length === 0 ? (
-              <p className={styles.empty}>No family members to display.</p>
+              <p className={styles.empty}>कुनै सदस्य पनि फेला परेनन् ।</p>
             ) : (
               roots.map((root) => (
                 <TreeNode
@@ -97,14 +97,35 @@ export default function TreeView({ focusId: initialFocusId = null, onBack }) {
 
       {/* Detail panel */}
       {selectedMember && (
-        <MemberPanel
-          member={selectedMember}
-          parents={parents}
-          spouses={spouse}
-          children={children}
-          onClose={() => setSelectedMember(null)}
-          onNavigate={handleNavigate}
-        />
+        <>
+          <div className="d-none d-md-block">
+            <MemberPanel
+              member={selectedMember}
+              parents={parents}
+              spouses={spouse}
+              children={children}
+              onClose={() => setSelectedMember(null)}
+              onNavigate={handleNavigate}
+            />
+          </div>
+
+          <div className="d-block d-md-none" style={{ position: "fixed", inset: 0, zIndex: 1040, background: "rgba(12, 16, 13, 0.38)", display: "flex", alignItems: "center", justifyContent: "center", padding: "18px" }}>
+            <div className="modal fade show d-block" tabIndex="-1" role="dialog" aria-modal="true" style={{ position: "relative", width: "100%" }}>
+              <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable" style={{ maxWidth: "540px", margin: 0, width: "100%" }}>
+                <div className="modal-content border-0" style={{ background: "transparent", boxShadow: "none" }}>
+                  <MemberPanel
+                    member={selectedMember}
+                    parents={parents}
+                    spouses={spouse}
+                    children={children}
+                    onClose={() => setSelectedMember(null)}
+                    onNavigate={handleNavigate}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

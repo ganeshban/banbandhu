@@ -1,12 +1,21 @@
 import React from "react";
 import MemberAvatar from "./MemberAvatar";
 import styles from "./MemberPanel.module.css";
-import { formatDate, getAge } from "../utils/treeUtils";
-import { AAMA_BUBA, BYAKTIGAT_BIBARAN, JANMA_MITI, JANMA_STHAN, KO_PARIWARIK_BIBARAN, LINGA, MRITU_BHAISAKEKO, PARIWAR, PATI_PATNI, SANTAN, SWARGARAN_MITI, UMER } from "../utils/Constants";
+import { formatDate, getAge, getYearsSince } from "../utils/treeUtils";
+import { AAMA_BUBA, BAAL_BACHCHA, BIWAHA, BYAKTIGAT_BIBARAN, getMerriageNumber, JANMA_MITI, JANMA_STHAN, KO_PARIWARIK_BIBARAN, LINGA, MRITU_BHAISAKEKO, PARIWAR, PATI_PATNI, SANTAN, SWARGARAN_MITI, UMER } from "../utils/Constants";
 export default function MemberPanel({ member, parents, spouses, children, onClose, onNavigate }) {
   if (!member) return null;
 
   const age = member.dob ? getAge(member.dob, member.dod) : null;
+  const yearsSinceDeath = member.dod ? getYearsSince(member.dod) : null;
+  const multiSpouse = spouses.length > 1;
+  const spouseGroups = spouses.map((spouse) => ({
+    spouse,
+    childrenForSpouse: (children || []).filter((child) => {
+      const parentIds = child.parentIds || [];
+      return parentIds.includes(member.id) && parentIds.includes(spouse.id);
+    })
+  }));
 
   return (
     <aside className={`${styles.panel} animate-slide`}>
@@ -43,7 +52,7 @@ export default function MemberPanel({ member, parents, spouses, children, onClos
           {member.dod && (
             <>
               <dt>{SWARGARAN_MITI}</dt>
-              <dd>{formatDate(member.dod)}</dd>
+              <dd>{formatDate(member.dod)}{yearsSinceDeath !== null && ` (${yearsSinceDeath} वर्ष पहिले)`}</dd>
             </>
           )}
           {member.birthPlace && (
@@ -83,8 +92,46 @@ export default function MemberPanel({ member, parents, spouses, children, onClos
             ))}
           </div>
         )}
+        {multiSpouse && (
+          <div className={styles.section}>
 
-        {spouses.length > 0 && (
+            <h3 className={styles.sectionTitle}><span className={styles.dot} />
+              {BIWAHA} & {BAAL_BACHCHA}
+            </h3>
+
+            {spouseGroups.map(({ spouse: sid, childrenForSpouse }, i) => (
+              <div key={sid.id} className={styles.unionBlock}>
+                <div className={styles.unionHeader}>
+                  <span className={styles.unionIndex}>
+                    {getMerriageNumber(i + 1)}
+                  </span>
+                </div>
+
+                <div className={styles.relGroup}>
+                  <span className={styles.relLabel}>{PATI_PATNI}</span>
+                  <button className={styles.relCard} onClick={() => onNavigate(sid.id)}>
+                    <MemberAvatar member={sid} size={28} />
+                    <span>{sid.name}</span>
+                  </button>
+                </div>
+
+                {childrenForSpouse.length > 0 && (
+                  <div className={styles.relGroup}>
+                    <span className={styles.relLabel}>{SANTAN}</span>
+                    {childrenForSpouse.map((child) => (
+                      <button key={child.id} className={styles.relCard} onClick={() => onNavigate(child.id)}>
+                        <MemberAvatar member={child} size={28} />
+                        <span>{child.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {!multiSpouse && spouses.length > 0 && (
           <div className={styles.relGroup}>
             <span className={styles.relLabel}>{PATI_PATNI}</span>
             {spouses.map((s) => (
@@ -98,7 +145,7 @@ export default function MemberPanel({ member, parents, spouses, children, onClos
           </div>
         )}
 
-        {children.length > 0 && (
+        {!multiSpouse && children.length > 0 && (
           <div className={styles.relGroup}>
             <span className={styles.relLabel}>{SANTAN}</span>
             {children.map((c) => (

@@ -4,8 +4,8 @@ import { BIBARAN, KHOJNUHOS, MA_HERNE, PARIWAR } from "../utils/Constants";
 
 export default function Header({ activeTab, onTabChange, familyName }) {
   return (
-    <header className={styles.header}>
-      <div className={styles.brand}>
+    <header className={`${styles.header} container-fluid px-3 px-md-4`}>
+      <div className={`${styles.brand} d-flex align-items-center`}>
         <svg className={styles.logo} width="26" height="26" viewBox="0 0 26 26" fill="none">
           <circle cx="13" cy="5" r="3" stroke="var(--gold)" strokeWidth="1.5" />
           <circle cx="6" cy="17" r="3" stroke="var(--gold)" strokeWidth="1.5" />
@@ -15,7 +15,7 @@ export default function Header({ activeTab, onTabChange, familyName }) {
         <span className={styles.brandName}>{familyName} <em>{PARIWAR} {BIBARAN}</em></span>
       </div>
 
-      <nav className={styles.nav}>
+      <nav className={`${styles.nav} d-flex flex-wrap ms-auto`}>
         <button
           className={`${styles.tab} ${activeTab === "tree" ? styles.active : ""}`}
           onClick={() => onTabChange("tree")}

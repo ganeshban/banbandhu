@@ -4,7 +4,7 @@ import MemberAvatar from "../components/MemberAvatar";
 import styles from "./LookupView.module.css";
 import { useFamily } from "../hooks/useFamily";
 import { formatDate, getAge, getParentNames } from "../utils/treeUtils";
-import { AAMA_BUBA, BAAL_BACHCHA, JANMA_MITI, JANMA_STHAN, KHOJNE_Q_TEXT, KHOJNUHOS, KO_PARIWARIK_BIBARAN, LINGA, MRITU_BHAISAKEKO, PATI_PATNI, SABAI_JANA, SADASYA, SWARGARAN_MITI, UMER } from "../utils/Constants";
+import { AAMA_BUBA, BAAL_BACHCHA, engToNepNumber, JANMA_MITI, JANMA_STHAN, KHOJNE_Q_TEXT, KHOJNUHOS, KO_PARIWARIK_BIBARAN, LINGA, MRITU_BHAISAKEKO, PATI_PATNI, SABAI_JANA, SADASYA, SWARGARAN_MITI, UMER } from "../utils/Constants";
 
 export default function LookupView({ onViewTree }) {
   const { members, search, getParents, getSpouse, getChildren } = useFamily();
@@ -37,8 +37,8 @@ export default function LookupView({ onViewTree }) {
   const children = selected ? getChildren(selected.id) : [];
 
   return (
-    <div className={styles.page}>
-      <div className={styles.hero}>
+    <div className={`${styles.page} container-fluid`}>
+      <div className={`${styles.hero} container py-4 py-md-5`}>
         <h1 className={styles.heroTitle}>{SADASYA} {KHOJNUHOS}</h1>
         <p className={styles.heroSub}>
           {KHOJNE_Q_TEXT}
@@ -53,7 +53,7 @@ export default function LookupView({ onViewTree }) {
 
       {!selected && !query && (
         <div className={styles.allGrid}>
-          <h2 className={styles.gridTitle}>{SABAI_JANA} <span>({members.length})</span></h2>
+          <h2 className={styles.gridTitle}>{SABAI_JANA} <span className="preeti" >({engToNepNumber(members.length)})</span></h2>
           <div className={styles.grid}>
             {members.map((m) => (
               <MemberCard key={m.id} member={m} parents={getParentNames(members, m.parentIds)} onClick={() => handleClick(m)} />
@@ -64,6 +64,12 @@ export default function LookupView({ onViewTree }) {
 
       {selected && (
         <div className={`${styles.profileCard} animate-fade`}>
+          <button className={styles.closeBtn} onClick={handleClear} aria-label="Close profile">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+            </svg>
+          </button>
+
           <div className={styles.profileHeader}>
             <MemberAvatar member={selected} size={80} highlight />
             <div>

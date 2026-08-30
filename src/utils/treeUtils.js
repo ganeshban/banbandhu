@@ -85,16 +85,33 @@ export function buildFocusedTree(members, focusId) {
   return { roots, memberMap: filteredMap, focusId, ancestorIds, descendantIds };
 }
 
+function parseLocalDate(dateStr) {
+  if (!dateStr) return null;
+
+  const isoMatch = /^\d{4}-\d{2}-\d{2}$/.exec(dateStr);
+  if (isoMatch) {
+    const [year, month, day] = dateStr.split("-").map(Number);
+    return new Date(year, month - 1, day);
+  }
+
+  return new Date(dateStr);
+}
+
 export function formatDate(dateStr) {
   if (!dateStr) return "Present";
-  const d = new Date(dateStr);
+  const d = parseLocalDate(dateStr);
   return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
 }
 
 export function getAge(dob, dod) {
-  const end = dod ? new Date(dod) : new Date();
-  const start = new Date(dob);
+  const end = dod ? parseLocalDate(dod) : new Date();
+  const start = parseLocalDate(dob);
+  if (!start || Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return 0;
   return Math.floor((end - start) / (365.25 * 24 * 60 * 60 * 1000));
+}
+
+export function getYearsSince(dateStr) {
+  return getAge(dateStr, null);
 }
 
 export function getMemberById(members, id) {
@@ -106,3 +123,13 @@ export function getParentNames(members, parentIds) {
     .map((id) => getMemberById(members, id)?.name)
     .filter(Boolean);
 }
+export function engToNepNumber(n) {
+  let x = "";
+  switch (n) {
+    case 1: x = "!";
+  }
+  return (parentIds || [])
+    .map((id) => getMemberById(members, id)?.name)
+    .filter(Boolean);
+}
+

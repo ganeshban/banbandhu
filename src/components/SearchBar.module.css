@@ -1,7 +1,6 @@
 .wrapper {
   position: relative;
-  width: 380px;
-  max-width: 100%;
+  width: min(100%, 380px);
   z-index: 100;
 }
 
@@ -53,7 +52,9 @@
   transition: color var(--transition);
 }
 
-.clear:hover { color: var(--text-1); }
+.clear:hover {
+  color: var(--text-1);
+}
 
 .dropdown {
   position: absolute;

@@ -11,7 +11,7 @@
 
 .heroTitle {
   font-family: var(--font-display);
-  font-size: 2.8rem;
+  font-size: clamp(2.2rem, 5vw, 2.8rem);
   font-weight: 300;
   color: var(--text-1);
   margin-bottom: 10px;
@@ -23,16 +23,16 @@
   margin-bottom: 28px;
 }
 
-.hero > div {
+.hero>div {
   margin: 0 auto;
 }
 
 /* All members grid */
-.allGrid { }
+.allGrid {}
 
 .gridTitle {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 3vw, 1.4rem);
   font-weight: 300;
   color: var(--text-2);
   margin-bottom: 20px;
@@ -46,7 +46,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 12px;
 }
 
@@ -98,12 +98,36 @@
 
 /* Profile card */
 .profileCard {
+  position: relative;
   background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 32px;
   max-width: 700px;
   margin: 0 auto;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(90, 116, 90, 0.9);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-3);
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.closeBtn:hover {
+  background: var(--bg-3);
+  color: var(--text-1);
 }
 
 .profileHeader {
@@ -115,7 +139,7 @@
 
 .profileName {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: clamp(1.6rem, 4vw, 2rem);
   font-weight: 300;
   color: var(--text-1);
   margin-bottom: 4px;
@@ -151,8 +175,11 @@
   margin-bottom: 28px;
 }
 
-.section { }
-.fullWidth { grid-column: 1 / -1; }
+.section {}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
 
 .dt {
   font-size: 0.68rem;
@@ -169,7 +196,9 @@
   line-height: 1.55;
 }
 
-.cap { text-transform: capitalize; }
+.cap {
+  text-transform: capitalize;
+}
 
 .treeBtn {
   display: flex;
@@ -189,4 +218,48 @@
 .treeBtn:hover {
   background: rgba(201, 168, 76, 0.15);
   border-color: var(--gold);
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 28px 14px 56px;
+  }
+
+  .hero {
+    margin-bottom: 30px;
+  }
+
+  .profileCard {
+    padding: 44px 16px 20px;
+  }
+
+  .closeBtn {
+    top: 12px;
+    right: 12px;
+  }
+
+  .profileHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profileGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 440px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .memberCard {
+    padding: 12px 14px;
+  }
+
+  .treeBtn {
+    font-size: 0.8rem;
+  }
 }

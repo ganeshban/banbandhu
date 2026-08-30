@@ -1,11 +1,12 @@
 .header {
-  height: 72px;
+  min-height: 72px;
   display: flex;
   align-items: center;
-  padding: 0 28px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
   border-bottom: 1px solid var(--border);
   background: var(--bg-2);
-  gap: 32px;
+  gap: 12px 20px;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -16,16 +17,20 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
-.logo { flex-shrink: 0; }
+.logo {
+  flex-shrink: 0;
+}
 
 .brandName {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
   font-weight: 300;
   color: var(--text-1);
   letter-spacing: 0.02em;
+  line-height: 1.2;
 }
 
 .brandName em {
@@ -37,18 +42,20 @@
   display: flex;
   gap: 4px;
   margin-left: auto;
+  flex-wrap: wrap;
 }
 
 .tab {
   display: flex;
   align-items: center;
   gap: 7px;
-  padding: 7px 16px;
+  padding: 7px 14px;
   border-radius: var(--radius-sm);
   font-size: 0.82rem;
   color: var(--text-3);
   border: 1px solid transparent;
   transition: color var(--transition), background var(--transition), border-color var(--transition);
+  white-space: nowrap;
 }
 
 .tab:hover {
@@ -60,4 +67,32 @@
   color: var(--gold-light) !important;
   background: rgba(201, 168, 76, 0.08) !important;
   border-color: var(--gold-dim) !important;
+}
+
+@media (max-width: 640px) {
+  .header {
+    justify-content: center;
+    text-align: center;
+    padding: 12px 14px 16px;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brandName {
+    text-align: center;
+  }
+
+  .nav {
+    width: 100%;
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .tab {
+    flex: 1 1 150px;
+    justify-content: center;
+  }
 }
