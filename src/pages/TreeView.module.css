@@ -125,6 +125,31 @@
   min-width: max-content;
 }
 
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1040;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(12, 16, 13, 0.38);
+}
+
+.mobileModal {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  margin: 0;
+}
+
+.mobileModalContent {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
 .empty {
   color: var(--text-3);
   font-style: italic;

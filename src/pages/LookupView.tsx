@@ -4,7 +4,7 @@ import MemberAvatar from "../components/MemberAvatar";
 import styles from "./LookupView.module.css";
 import { useFamily } from "../hooks/useFamily";
 import { formatDate, getAge, getParentNames } from "../utils/treeUtils";
-import { AAMA_BUBA, BAAL_BACHCHA, engToNepNumber, JANMA_MITI, JANMA_STHAN, KHOJNE_Q_TEXT, KHOJNUHOS, KO_PARIWARIK_BIBARAN, LINGA, MRITU_BHAISAKEKO, PATI_PATNI, SABAI_JANA, SADASYA, SWARGARAN_MITI, UMER } from "../utils/Constants";
+import { AAMA_BUBA, BAAL_BACHCHA, engToNepNumber, JANMA_MITI, JANMA_STHAN, MAHILA, PURUS, KHOJNE_Q_TEXT, KHOJNUHOS, KO_PARIWARIK_BIBARAN, LINGA, MRITU_BHAISAKEKO, PATI_PATNI, SABAI_JANA, SADASYA, SWARGARAN_MITI, UMER } from "../utils/Constants";
 
 export default function LookupView({ onViewTree }) {
   const { members, search, getParents, getSpouse, getChildren } = useFamily();
@@ -75,17 +75,17 @@ export default function LookupView({ onViewTree }) {
             <div>
               <h2 className={styles.profileName}>{selected.name}</h2>
 
-              {selected.birthPlace && <p className={styles.profileMeta}>{selected.birthPlace}</p>}
+              {selected.currentAddress && <p className={styles.profileMeta}>{selected.currentAddress}</p>}
               {selected.dod && <span className={styles.badge}>{MRITU_BHAISAKEKO}</span>}
+              {selected.gender && <span className={styles.badge}> {selected.gender == "1" ? PURUS : MAHILA} </span>}
             </div>
           </div>
 
           <div className={styles.profileGrid}>
-            <Section title={JANMA_MITI}>
-              {selected.dob ? `${formatDate(selected.dob)} (${UMER} ${getAge(selected.dob, selected.dod)})` : "—"}
-            </Section>
+            {selected.dob && <Section title={JANMA_MITI}>
+              {formatDate(selected.dob)} ({UMER} {getAge(selected.dob, selected.dod)})
+            </Section>}
             {selected.dod && <Section title={SWARGARAN_MITI}>{formatDate(selected.dod)}</Section>}
-            <Section title={LINGA} capitalize>{selected.gender}</Section>
             {selected.birthPlace && <Section title={JANMA_STHAN}>{selected.birthPlace}</Section>}
             {parents.length > 0 && (
               <Section title={AAMA_BUBA}>{parents.map((c) => c.name).join(", ")}</Section>

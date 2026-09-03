@@ -2,7 +2,13 @@ import React from "react";
 import styles from "./Header.module.css";
 import { BIBARAN, KHOJNUHOS, MA_HERNE, PARIWAR } from "../utils/Constants";
 
-export default function Header({ activeTab, onTabChange, familyName }) {
+interface HeaderProps {
+  activeTab: "tree" | "lookup";
+  onTabChange: (tab: "tree" | "lookup") => void;
+  familyName: string;
+}
+
+export default function Header({ activeTab, onTabChange, familyName }: HeaderProps) {
   return (
     <header className={`${styles.header} container-fluid px-3 px-md-4`}>
       <div className={`${styles.brand} d-flex align-items-center`}>

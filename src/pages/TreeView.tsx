@@ -1,31 +1,29 @@
-import React, { useState, useCallback } from "react";
+import React, { useMemo, useState } from "react";
 import TreeNode from "../components/TreeNode";
 import MemberPanel from "../components/MemberPanel";
 import styles from "./TreeView.module.css";
-import { buildFocusedTree, buildTree } from "../utils/treeUtils";
-import familyData from "../data/familyData.json";
+import { buildFocusedTree, buildTree, getRelationsForMember } from "../utils/treeUtils";
+import useMembers from "../hooks/userMembers";
 import { DEKHAIYAKO, MAHILA, MRITU_BHAISAKEKO, PUNA_KHOJNUHOS, PURUS } from "../utils/Constants";
-
-const members = familyData.members;
 
 export default function TreeView({ focusId: initialFocusId = null, onBack }) {
   const [focusId, setFocusId] = useState(initialFocusId);
   const [selectedMember, setSelectedMember] = useState(null);
 
-  const { roots } = focusId
-    ? buildFocusedTree(members, focusId)
-    : buildTree(members);
+  const members = useMembers();
+  const { roots } = useMemo(
+    () => (focusId ? buildFocusedTree(members, focusId) : buildTree(members)),
+    [focusId]
+  );
 
-  // Derive relations for panel
-  const parents = selectedMember
-    ? (selectedMember.parentIds || []).map((id) => members.find((m) => m.id === id)).filter(Boolean)
-    : [];
-  const spouse = selectedMember
-    ? (selectedMember.spouseIds || []).map((id) => members.find((m) => m.id === id)).filter(Boolean)
-    : [];
-  const children = selectedMember
-    ? members.filter((m) => (m.parentIds || []).includes(selectedMember.id))
-    : [];
+  const relationState = useMemo(
+    () => (selectedMember ? getRelationsForMember(members, selectedMember.id) : { parents: [], spouses: [], children: [] }),
+    [selectedMember]
+  );
+
+  const parents = relationState.parents;
+  const spouses = relationState.spouses;
+  const children = relationState.children;
 
   function handleSelect(node) {
     // Find full member (node may be a clone from tree)
@@ -102,21 +100,21 @@ export default function TreeView({ focusId: initialFocusId = null, onBack }) {
             <MemberPanel
               member={selectedMember}
               parents={parents}
-              spouses={spouse}
+              spouses={spouses}
               children={children}
               onClose={() => setSelectedMember(null)}
               onNavigate={handleNavigate}
             />
           </div>
 
-          <div className="d-block d-md-none" style={{ position: "fixed", inset: 0, zIndex: 1040, background: "rgba(12, 16, 13, 0.38)", display: "flex", alignItems: "center", justifyContent: "center", padding: "18px" }}>
-            <div className="modal fade show d-block" tabIndex="-1" role="dialog" aria-modal="true" style={{ position: "relative", width: "100%" }}>
-              <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable" style={{ maxWidth: "540px", margin: 0, width: "100%" }}>
-                <div className="modal-content border-0" style={{ background: "transparent", boxShadow: "none" }}>
+          <div className={`${styles.mobileOverlay} d-block d-md-none`}>
+            <div className={`${styles.mobileModal} modal fade show d-block`} tabIndex="-1" role="dialog" aria-modal="true">
+              <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div className={`${styles.mobileModalContent} modal-content`}>
                   <MemberPanel
                     member={selectedMember}
                     parents={parents}
-                    spouses={spouse}
+                    spouses={spouses}
                     children={children}
                     onClose={() => setSelectedMember(null)}
                     onNavigate={handleNavigate}

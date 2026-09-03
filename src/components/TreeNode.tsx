@@ -9,7 +9,7 @@ export default function TreeNode({ node, onSelect, focusId, depth = 0 }) {
   const isDeceased = !!node.dod;
 
   return (
-    <div className={`${styles.nodeWrapper} animate-fade`} style={{ animationDelay: `${depth * 3}ms` }}>
+    <div className={`${styles.nodeWrapper} animate-fade`}>
       <div className={styles.nodeRow}>
         {/* Vertical + horizontal connector lines are handled by CSS */}
         <div

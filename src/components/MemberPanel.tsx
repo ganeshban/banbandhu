@@ -2,7 +2,7 @@ import React from "react";
 import MemberAvatar from "./MemberAvatar";
 import styles from "./MemberPanel.module.css";
 import { formatDate, getAge, getYearsSince } from "../utils/treeUtils";
-import { AAMA_BUBA, BAAL_BACHCHA, BIWAHA, BYAKTIGAT_BIBARAN, getMerriageNumber, JANMA_MITI, JANMA_STHAN, KO_PARIWARIK_BIBARAN, LINGA, MRITU_BHAISAKEKO, PARIWAR, PATI_PATNI, SANTAN, SWARGARAN_MITI, UMER } from "../utils/Constants";
+import { AAMA_BUBA, BAAL_BACHCHA, BIWAHA, BYAKTIGAT_BIBARAN, getMerriageNumber, JANMA_MITI, JANMA_STHAN, KO_PARIWARIK_BIBARAN, LINGA, MAHILA, MRITU_BHAISAKEKO, PARIWAR, PATI_PATNI, PURUS, SANTAN, SWARGARAN_MITI, UMER } from "../utils/Constants";
 export default function MemberPanel({ member, parents, spouses, children, onClose, onNavigate }) {
   if (!member) return null;
 
@@ -12,8 +12,8 @@ export default function MemberPanel({ member, parents, spouses, children, onClos
   const spouseGroups = spouses.map((spouse) => ({
     spouse,
     childrenForSpouse: (children || []).filter((child) => {
-      const parentIds = child.parentIds || [];
-      return parentIds.includes(member.id) && parentIds.includes(spouse.id);
+      const parents = child.parents || [];
+      return parents.includes(member.id) && parents.includes(spouse.id);
     })
   }));
 
@@ -30,13 +30,8 @@ export default function MemberPanel({ member, parents, spouses, children, onClos
         <div className={styles.headerInfo}>
           <h2 className={styles.name}>{member.otherName ?? member.name}</h2>
           <h5 className={styles.name}>{member.otherName ? `(${member.name})` : ""}</h5>
-
-          {member.dod && <span className={styles.deceasedBadge}>{MRITU_BHAISAKEKO}</span>}
         </div>
       </div>
-
-      <div className={styles.divider} />
-
       <div className={styles.section}>
         <h3 className={styles.sectionTitle}>
           <span className={styles.dot} />
@@ -61,13 +56,26 @@ export default function MemberPanel({ member, parents, spouses, children, onClos
               <dd>{member.birthPlace}</dd>
             </>
           )}
+          {member.currentAddress && (
+            <>
+              <dt>Halko Address </dt>
+              <dd>{member.currentAddress}</dd>
+            </>
+          )}
+
+          {member.phone && (
+            <>
+              <dt>Samparka Number </dt>
+              <dd>{member.phone}</dd>
+            </>
+          )}
 
 
 
           {member.gender && (
             <>
               <dt>{LINGA}</dt>
-              <dd >{member.gender}</dd>
+              <dd >{member.gender == "1" ? PURUS : MAHILA}</dd>
             </>
           )}
 
