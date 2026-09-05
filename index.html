@@ -8,6 +8,10 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      const redirect = new URLSearchParams(window.location.search).get("redirect");
+      if (redirect) window.history.replaceState(null, "", redirect);
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

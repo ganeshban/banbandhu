@@ -1,15 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MemberAvatar from "./MemberAvatar";
 import styles from "./TreeNode.module.css";
 
+function containsMember(node, memberId) {
+  if (memberId === null || memberId === undefined) return false;
+  if (String(node.id) === String(memberId)) return true;
+  return (node.children ?? []).some((child) => containsMember(child, memberId));
+}
+
 export default function TreeNode({ node, onSelect, focusId, depth = 0 }) {
-  const [expanded, setExpanded] = useState(depth < 9);
-  const isFocused = focusId === node.id;
+  const containsFocus = containsMember(node, focusId);
+  const [expanded, setExpanded] = useState(depth < 9 || containsFocus);
+  const isFocused = focusId !== null && focusId !== undefined && String(focusId) === String(node.id);
   const hasChildren = node.children && node.children.length > 0;
   const isDeceased = !!node.dod;
 
+  useEffect(() => {
+    if (containsFocus) {
+      setExpanded(true);
+    }
+  }, [containsFocus]);
+
   return (
-    <div className={`${styles.nodeWrapper} animate-fade`} style={{ animationDelay: `${depth * 3}ms` }}>
+    <div className={`${styles.nodeWrapper} ${depth === 0 ? "animate-fade" : ""}`}>
       <div className={styles.nodeRow}>
         {/* Vertical + horizontal connector lines are handled by CSS */}
         <div
