@@ -12,8 +12,17 @@ export default function MemberPanel({ member, parents, spouses, children, onClos
   const spouseGroups = spouses.map((spouse) => ({
     spouse,
     childrenForSpouse: (children || []).filter((child) => {
-      const parents = child.parents || [];
-      return parents.includes(member.id) && parents.includes(spouse.id);
+      const parentIds = new Set((child.parents || []).map((parentId) => String(parentId)));
+      const memberChildIds = new Set((member.children || []).map((childId) =>
+        String(typeof childId === "object" ? childId.id : childId)
+      ));
+      const spouseChildIds = new Set((spouse.children || []).map((childId) =>
+        String(typeof childId === "object" ? childId.id : childId)
+      ));
+      const childId = String(child.id);
+      const belongsToMember = parentIds.has(String(member.id)) || memberChildIds.has(childId);
+      const belongsToSpouse = parentIds.has(String(spouse.id)) || spouseChildIds.has(childId);
+      return belongsToMember && belongsToSpouse;
     })
   }));
 
@@ -165,7 +174,7 @@ export default function MemberPanel({ member, parents, spouses, children, onClos
           </div>
         )}
 
-        {parents.length === 0 && !spouses && children.length === 0 && (
+        {parents.length === 0 && spouses.length === 0 && children.length === 0 && (
           <p className={styles.empty}>No family relations recorded.</p>
         )}
       </div>

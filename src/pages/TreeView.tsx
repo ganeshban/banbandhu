@@ -1,24 +1,35 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import type { MemberId } from "../model/Member";
 import TreeNode from "../components/TreeNode";
 import MemberPanel from "../components/MemberPanel";
 import styles from "./TreeView.module.css";
-import { buildFocusedTree, buildTree, getRelationsForMember } from "../utils/treeUtils";
+import { buildFocusedTree, buildTree, createFamilyIndex, getRelationsForMember } from "../utils/treeUtils";
 import useMembers from "../hooks/userMembers";
 import { DEKHAIYAKO, MAHILA, MRITU_BHAISAKEKO, PUNA_KHOJNUHOS, PURUS } from "../utils/Constants";
 
-export default function TreeView({ focusId: initialFocusId = null, onBack }) {
+export default function TreeView() {
+  const { userId } = useParams();
+  const navigate = useNavigate();
+  const initialFocusId: MemberId | null = userId ?? null;
   const [focusId, setFocusId] = useState(initialFocusId);
   const [selectedMember, setSelectedMember] = useState(null);
 
   const members = useMembers();
+  const familyIndex = useMemo(() => createFamilyIndex(members), [members]);
+  useEffect(() => {
+    const member = userId ? members.find((entry) => String(entry.id) === userId) ?? null : null;
+    setFocusId(userId ?? null);
+    setSelectedMember(member);
+  }, [members, userId]);
   const { roots } = useMemo(
-    () => (focusId ? buildFocusedTree(members, focusId) : buildTree(members)),
-    [focusId]
+    () => (focusId ? buildFocusedTree(familyIndex, focusId) : buildTree(familyIndex)),
+    [focusId, familyIndex]
   );
 
   const relationState = useMemo(
-    () => (selectedMember ? getRelationsForMember(members, selectedMember.id) : { parents: [], spouses: [], children: [] }),
-    [selectedMember]
+    () => (selectedMember ? getRelationsForMember(familyIndex, selectedMember.id) : { parents: [], spouses: [], children: [] }),
+    [familyIndex, selectedMember]
   );
 
   const parents = relationState.parents;
@@ -27,18 +38,21 @@ export default function TreeView({ focusId: initialFocusId = null, onBack }) {
 
   function handleSelect(node) {
     // Find full member (node may be a clone from tree)
-    const full = members.find((m) => m.id === node.id);
+    const full = members.find((m) => String(m.id) === String(node.id));
     setSelectedMember(full || node);
   }
 
   function handleNavigate(id) {
     setFocusId(id);
-    const m = members.find((m) => m.id === id);
+    navigate(`/tree/${id}`);
+    const m = members.find((m) => String(m.id) === String(id));
     setSelectedMember(m || null);
   }
 
   function clearFocus() {
     setFocusId(null);
+    setSelectedMember(null);
+    navigate("/tree");
   }
 
   return (
@@ -46,8 +60,8 @@ export default function TreeView({ focusId: initialFocusId = null, onBack }) {
       {/* Main tree canvas */}
       <div className={`${styles.canvas} col p-0`}>
         <div className={`${styles.toolbar} d-flex flex-wrap align-items-center`}>
-          {onBack && (
-            <button className={styles.backBtn} onClick={onBack}>
+          {focusId && (
+            <button className={styles.backBtn} onClick={() => navigate("/tree")}>
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M9 2L3 7L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -58,7 +72,7 @@ export default function TreeView({ focusId: initialFocusId = null, onBack }) {
           {focusId && (
             <div className={styles.focusChip}>
               <span> {DEKHAIYAKO}:</span>
-              <strong>{members.find((m) => m.id === focusId)?.name}</strong>
+              <strong>{members.find((m) => String(m.id) === String(focusId))?.name}</strong>
               <button onClick={clearFocus} title="Show full tree">
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                   <path d="M1 1l8 8M9 1L1 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -108,7 +122,7 @@ export default function TreeView({ focusId: initialFocusId = null, onBack }) {
           </div>
 
           <div className={`${styles.mobileOverlay} d-block d-md-none`}>
-            <div className={`${styles.mobileModal} modal fade show d-block`} tabIndex="-1" role="dialog" aria-modal="true">
+            <div className={`${styles.mobileModal} modal fade show d-block`} tabIndex={-1} role="dialog" aria-modal="true">
               <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                 <div className={`${styles.mobileModalContent} modal-content`}>
                   <MemberPanel

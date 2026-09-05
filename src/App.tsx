@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo } from "react";
+import { BrowserRouter, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import TreeView from "./pages/TreeView";
 import LookupView from "./pages/LookupView";
@@ -7,8 +8,6 @@ import "./styles/global.css";
 import useMembers from "./hooks/userMembers";
 
 export default function App() {
-  const [tab, setTab] = useState<"tree" | "lookup">("tree");
-  const [focusId, setFocusId] = useState<string | number | null>(null);
   const member = useMembers();
   const familyValidation = useMemo(() => validateFamilyData(member), [member]);
 
@@ -16,35 +15,32 @@ export default function App() {
     console.warn("Family data validation issues:", familyValidation.issues);
   }
 
-  function handleViewTree(memberId: string | number) {
-    setFocusId(memberId);
-    setTab("tree");
-  }
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+}
 
-  function handleTabChange(newTab: "tree" | "lookup") {
-    setTab(newTab);
-    if (newTab === "tree") setFocusId(null);
-  }
+function AppRoutes() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const activeTab = location.pathname.startsWith("/list") ? "lookup" : "tree";
 
   return (
     <>
       <Header
-        activeTab={tab}
-        onTabChange={handleTabChange}
+        activeTab={activeTab}
+        onTabChange={(tab) => navigate(tab === "lookup" ? "/list" : "/tree")}
         familyName="वन बन्दु समाज नेपाल"
       />
-
-      {tab === "tree" && (
-        <TreeView
-          key={String(focusId ?? "all")}
-          focusId={focusId}
-          onBack={focusId ? () => { setFocusId(null); } : null}
-        />
-      )}
-
-      {tab === "lookup" && (
-        <LookupView onViewTree={handleViewTree} />
-      )}
+      <Routes>
+        <Route path="/list" element={<LookupView />} />
+        <Route path="/list/:userId" element={<LookupView />} />
+        <Route path="/tree" element={<TreeView />} />
+        <Route path="/tree/:userId" element={<TreeView />} />
+        <Route path="*" element={<Navigate to="/tree" replace />} />
+      </Routes>
     </>
   );
 }

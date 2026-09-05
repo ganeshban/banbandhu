@@ -1,5 +1,7 @@
 /** @typedef {import("../model/Member").Member} Member */
 
+import { Member } from "../model/Member";
+
 function isValidIsoDate(value) {
     if (!value || value === null) return true;
     if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
@@ -14,7 +16,7 @@ function isValidIsoDate(value) {
 }
 
 /** @param {Member[] | null | undefined} members */
-export function validateFamilyData(members = []) {
+export function validateFamilyData(members: Array<Member> = []) {
     const issues = [];
     const seenIds = new Set();
     const allIds = new Set((members || []).map((member) => member?.id).filter(Boolean));
@@ -40,9 +42,6 @@ export function validateFamilyData(members = []) {
             issues.push(`Invalid DOB for member ${id}: ${member.dob}`);
         }
 
-        if (member.dod && !isValidIsoDate(member.dod)) {
-            issues.push(`Invalid DOD for member ${id}: ${member.dod}`);
-        }
 
         if (member.dob && member.dod && isValidIsoDate(member.dob) && isValidIsoDate(member.dod)) {
             const dobDate = new Date(member.dob);
@@ -52,7 +51,7 @@ export function validateFamilyData(members = []) {
             }
         }
 
-        const parentIds = Array.isArray(member.parents) ? member.parents : (Array.isArray(member.parentIds) ? member.parentIds : []);
+        const parentIds = Array.isArray(member.parents) ? member.parents : [];
         parentIds.forEach((parentId) => {
             if (!allIds.has(String(parentId))) {
                 issues.push(`Missing parent reference for member ${id}: ${parentId}`);
@@ -75,7 +74,7 @@ export function validateFamilyData(members = []) {
 }
 
 /** @param {Member[] | null | undefined} members */
-export function getFamilyDataSummary(members = []) {
+export function getFamilyDataSummary(members: Array<Member | any> = []) {
     const valid = validateFamilyData(members);
 
     return {

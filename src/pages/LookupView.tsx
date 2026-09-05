@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import type { Member } from "../model/Member";
 import SearchBar from "../components/SearchBar";
 import MemberAvatar from "../components/MemberAvatar";
 import styles from "./LookupView.module.css";
@@ -6,11 +8,17 @@ import { useFamily } from "../hooks/useFamily";
 import { formatDate, getAge, getParentNames } from "../utils/treeUtils";
 import { AAMA_BUBA, BAAL_BACHCHA, engToNepNumber, JANMA_MITI, JANMA_STHAN, MAHILA, PURUS, KHOJNE_Q_TEXT, KHOJNUHOS, KO_PARIWARIK_BIBARAN, LINGA, MRITU_BHAISAKEKO, PATI_PATNI, SABAI_JANA, SADASYA, SWARGARAN_MITI, UMER } from "../utils/Constants";
 
-export default function LookupView({ onViewTree }) {
+export default function LookupView() {
   const { members, search, getParents, getSpouse, getChildren } = useFamily();
+  const { userId } = useParams();
+  const navigate = useNavigate();
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-  const [selected, setSelected] = useState(null);
+  const [results, setResults] = useState<Member[]>([]);
+  const [selected, setSelected] = useState<Member | null>(null);
+
+  useEffect(() => {
+    setSelected(userId ? members.find((member) => String(member.id) === userId) ?? null : null);
+  }, [members, userId]);
 
   function handleSearch(q) {
     setQuery(q);
@@ -21,6 +29,7 @@ export default function LookupView({ onViewTree }) {
   function handleSelect(member) {
     setSelected(member);
     setResults([]);
+    navigate(`/list/${member.id}`);
   }
   function handleClick(member) {
     handleSelect(member);
@@ -30,6 +39,7 @@ export default function LookupView({ onViewTree }) {
     setQuery("");
     setResults([]);
     setSelected(null);
+    navigate("/list");
   }
 
   const parents = selected ? getParents(selected.id) : [];
@@ -56,7 +66,7 @@ export default function LookupView({ onViewTree }) {
           <h2 className={styles.gridTitle}>{SABAI_JANA} <span className="preeti" >({engToNepNumber(members.length)})</span></h2>
           <div className={styles.grid}>
             {members.map((m) => (
-              <MemberCard key={m.id} member={m} parents={getParentNames(members, m.parentIds)} onClick={() => handleClick(m)} />
+              <MemberCard key={m.id} member={m} parents={getParentNames(members, m.parents)} onClick={() => handleClick(m)} />
             ))}
           </div>
         </div>
@@ -97,7 +107,7 @@ export default function LookupView({ onViewTree }) {
 
           </div>
 
-          <button className={styles.treeBtn} onClick={() => onViewTree(selected.id)}>
+          <button className={styles.treeBtn} onClick={() => navigate(`/tree/${selected.id}`)}>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M8 2v12M4 6l4-4 4 4M4 14h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
@@ -109,7 +119,7 @@ export default function LookupView({ onViewTree }) {
   );
 }
 
-function Section({ title, children, capitalize, full }) {
+function Section({ title, children, capitalize = false, full = false }: { title: string; children: React.ReactNode; capitalize?: boolean; full?: boolean }) {
   return (
     <div className={`${styles.section} ${full ? styles.fullWidth : ""}`}>
       <dt className={styles.dt}>{title}</dt>
@@ -118,7 +128,7 @@ function Section({ title, children, capitalize, full }) {
   );
 }
 
-function MemberCard({ member, parents, onClick }) {
+function MemberCard({ member, parents, onClick }: { member: Member; parents: string[]; onClick: () => void }) {
   return (
     <button className={styles.memberCard} onClick={onClick}>
       <MemberAvatar member={member} size={44} />
