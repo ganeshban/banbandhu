@@ -4,8 +4,8 @@ import type { MemberId } from "../model/Member";
 import TreeNode from "../components/TreeNode";
 import MemberPanel from "../components/MemberPanel";
 import styles from "./TreeView.module.css";
-import { buildFocusedTree, buildTree, createFamilyIndex, getRelationsForMember } from "../utils/treeUtils";
-import useMembers from "../hooks/userMembers";
+import { buildFocusedTree, getRelationsForMember } from "../utils/treeUtils";
+import { useFamily } from "../hooks/useFamily";
 import { DEKHAIYAKO, MAHILA, MRITU_BHAISAKEKO, PUNA_KHOJNUHOS, PURUS } from "../utils/Constants";
 
 export default function TreeView() {
@@ -15,20 +15,21 @@ export default function TreeView() {
   const [focusId, setFocusId] = useState(initialFocusId);
   const [selectedMember, setSelectedMember] = useState(null);
 
-  const members = useMembers();
-  const familyIndex = useMemo(() => createFamilyIndex(members), [members]);
+  const { members, familyIndex, loading, error, roots: fullRoots } = useFamily();
   useEffect(() => {
     const member = userId ? members.find((entry) => String(entry.id) === userId) ?? null : null;
     setFocusId(userId ?? null);
     setSelectedMember(member);
   }, [members, userId]);
-  const { roots } = useMemo(
-    () => (focusId ? buildFocusedTree(familyIndex, focusId) : buildTree(familyIndex)),
-    [focusId, familyIndex]
+  const roots = useMemo(
+    () => (focusId ? buildFocusedTree(familyIndex, focusId).roots : fullRoots),
+    [focusId, familyIndex, fullRoots]
   );
 
   const relationState = useMemo(
-    () => (selectedMember ? getRelationsForMember(familyIndex, selectedMember.id) : { parents: [], spouses: [], children: [] }),
+    () => selectedMember
+      ? getRelationsForMember(familyIndex, selectedMember.id)
+      : { parents: [], spouses: [], children: [] },
     [familyIndex, selectedMember]
   );
 
@@ -90,7 +91,11 @@ export default function TreeView() {
 
         <div className={styles.treeScroll}>
           <div className={styles.treeRoot}>
-            {roots.length === 0 ? (
+            {loading ? (
+              <p className={styles.empty}>Loading family members...</p>
+            ) : error ? (
+              <p className={styles.empty}>{error}</p>
+            ) : roots.length === 0 ? (
               <p className={styles.empty}>कुनै सदस्य पनि फेला परेनन् ।</p>
             ) : (
               roots.map((root) => (

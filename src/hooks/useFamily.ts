@@ -4,7 +4,7 @@ import { buildTree, buildFocusedTree, createFamilyIndex, getMemberById, getParen
 import useMembers from "./userMembers";
 
 export function useFamily() {
-  const rawMembers = useMembers();
+  const { members: rawMembers, loading, error } = useMembers();
   const members: Member[] = Array.isArray(rawMembers) ? rawMembers : [];
   const familyIndex = useMemo(() => createFamilyIndex(members), [members]);
 
@@ -46,6 +46,7 @@ export function useFamily() {
 
   return {
     members,
+    familyIndex,
     roots,
     memberMap,
     getFocusedTree,
@@ -54,5 +55,7 @@ export function useFamily() {
     getSpouse,
     getParents,
     getChildren,
+    loading,
+    error,
   };
 }

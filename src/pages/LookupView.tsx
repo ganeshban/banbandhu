@@ -9,7 +9,7 @@ import { formatDate, getAge, getParentNames } from "../utils/treeUtils";
 import { AAMA_BUBA, BAAL_BACHCHA, engToNepNumber, JANMA_MITI, JANMA_STHAN, MAHILA, PURUS, KHOJNE_Q_TEXT, KHOJNUHOS, KO_PARIWARIK_BIBARAN, LINGA, MRITU_BHAISAKEKO, PATI_PATNI, SABAI_JANA, SADASYA, SWARGARAN_MITI, UMER } from "../utils/Constants";
 
 export default function LookupView() {
-  const { members, search, getParents, getSpouse, getChildren } = useFamily();
+  const { members, search, getParents, getSpouse, getChildren, loading, error } = useFamily();
   const { userId } = useParams();
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
@@ -61,7 +61,11 @@ export default function LookupView() {
         />
       </div>
 
-      {!selected && !query && (
+      {loading && <div className="container py-4"><p className="text-secondary">Loading family members...</p></div>}
+
+      {error && <div className="container py-4"><div className="alert alert-danger" role="alert">{error}</div></div>}
+
+      {!loading && !error && !selected && !query && (
         <div className={styles.allGrid}>
           <h2 className={styles.gridTitle}>{SABAI_JANA} <span className="preeti" >({engToNepNumber(members.length)})</span></h2>
           <div className={styles.grid}>

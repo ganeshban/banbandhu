@@ -79,6 +79,19 @@ export function createFamilyIndex(members: Member[] = []): FamilyIndex {
         });
     });
 
+    normalized.forEach((member) => {
+        const memberId = String(member.id);
+        (parentIdsByMemberId.get(memberId) ?? []).forEach((parentId) => {
+            const existingChildren = childIdsByMemberId.get(parentId) ?? [];
+            childIdsByMemberId.set(parentId, unique([...existingChildren, memberId]));
+        });
+
+        (spouseIdsByMemberId.get(memberId) ?? []).forEach((spouseId) => {
+            const existingSpouses = spouseIdsByMemberId.get(spouseId) ?? [];
+            spouseIdsByMemberId.set(spouseId, unique([...existingSpouses, memberId]));
+        });
+    });
+
     return {
         membersById,
         parentIdsByMemberId,
